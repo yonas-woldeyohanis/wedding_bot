@@ -31,7 +31,7 @@ class HealthCheckHandler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header("Content-type", "text/plain")
         self.end_headers()
-        self.wfile.write(b"Bot is running!      ")
+        self.wfile.write(b"Bot is running!  yonas woldeyohannis and his favor    ")
 
 def run_http_server():
     server = HTTPServer(("0.0.0.0", 10000), HealthCheckHandler)
