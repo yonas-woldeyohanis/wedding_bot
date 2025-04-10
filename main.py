@@ -63,7 +63,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("🗕 Date & Venue", callback_data="info_date")],
         [InlineKeyboardButton("📍 Location", callback_data="info_location")],
         [InlineKeyboardButton("📸 View Photos", callback_data="view_photos")],
-        [InlineKeyboardButton("⏳ Countdown to Wedding", callback_data="countdown")],
+        [InlineKeyboardButton("⏳ Countdown to the ሰርግ", callback_data="countdown")],
         [InlineKeyboardButton("👗 Dress Code Info", callback_data="dress_code")],
         [InlineKeyboardButton("📝 Leave a Blessing", callback_data="leave_blessing")]
     ]
