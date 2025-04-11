@@ -77,7 +77,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         [InlineKeyboardButton("📝 Leave a Blessing", callback_data="leave_blessing")]
     ]
     await update.message.reply_text(
-        "👋 hey,ሰላም አንደምን ኖት? በመጀመርያ ወደ Dr. ታምራት አያሌው እና ከአርያም ----ሰርግ ላይ ሊታደሙ በጎ ፈቃድዎ ስለሆነ እጅግ በጣም THANK YOU ማለት አንፈልጋለን😊😊😊😊-----በቀጣይነት ምርጫዎትን ይንኩ!",
+        """👋 hey,ሰላም አንደምን ኖት? በመጀመርያ ወደ Dr. ታምራት አያሌው እና ከአርያም ሀይሌ ሰርግ ላይ ሊታደሙ በጎ ፈቃድዎ ስለሆነ እጅግ በጣም THANK YOU ማለት አንፈልጋለን😊😊😊😊-----በቀጣይነት ምርጫዎትን ይንኩ!""",
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
 
@@ -99,7 +99,7 @@ async def export_blessings(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def handle_blessing(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.message.text
     log_message(update, f"Blessing: {message}")
-    await update.message.reply_text(" ለመልካም ምኞቶ እና ባርኮት አጅግ አናመሰግናለን 💖 Thank you for your blessing! It means a lot to us.")
+    await update.message.reply_text(" ለመልካም ምኞቶ እና ባርኮት አጅግ አናመሰግናለን 💖 Thank you for your blessing! It means a lot to us.መልክቶት ለባለ ትዳሮቹ ሳይሸራረፍ እናደርሳለን❤️")
 
 async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
@@ -137,6 +137,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             chat_id=query.message.chat_id,
             text="👗 Dress code:\nወንዶች: እባካችሁን በድንብ ልበሱ!! እና ደሞ ሱፍ ቢሆን ይመረጣል🥸..\nሴቶች:ወይዛዝርት ደሞ ቆንጀት ብላቹ ኑ። ግን ከሙሽራዋ በላይ መዋብ በጥብቅ የተከለከለ ነው-(for the sake of🙄😅)። እና ደሞ የሀገር ልብስ ካለበሳቹ  ምንም አትሰሩም! አትምጡ😡--\n✨"
         )
+        
     elif query.data == "leave_blessing":
         await context.bot.send_message(chat_id=query.message.chat_id, text="💬 እባክዎን ምኝትዎን ይጻፉልን:")
         return LEAVING_BLESSING
@@ -148,7 +149,7 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     photo = await update.message.photo[-1].get_file()
     filename = f"photos/{update.message.photo[-1].file_id}.jpg"
     await photo.download_to_drive(filename)
-    await update.message.reply_text("✅ ምስሉን ተቀብለናል.ወደ ምስል ዝርዝር ውስጥ አሁኑኑ እንጨምረዋለን።😊😊 አናመሰግናለን!")
+    await update.message.reply_text("✅ ምስሉን ተቀብለናል.ወደ ምስል ዝርዝር ውስጥ አሁኑኑ እንጨምረዋለን።ለማረጋገጥ ደግምው 'view photo' የሚለውን ይንኩ። አናመሰግናለን!😊😊 ")
 
 async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE):
     print(f"⚠️ Error: {context.error}")
