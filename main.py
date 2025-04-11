@@ -297,12 +297,7 @@ async def main():
     )
 
     logger.info("Bot webhook server finished.") # This line might not be reached if run_webhook runs forever
-
 if __name__ == "__main__":
     # Use asyncio.run() to execute the async main function
-    try:
-        asyncio.run(main())
-    except KeyboardInterrupt:
-        logger.info("Bot stopped manually.")
-    except Exception as e:
-        logger.critical(f"Application failed to start or crashed: {e}", exc_info=True)
+    # Let Render handle logging crashes directly if asyncio.run fails
+    asyncio.run(main())
